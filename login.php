@@ -1,40 +1,49 @@
 <?php
-session_name('my_custom_session');
+session_name('login');
 session_start();
 
-if (isset($_POST['Login'])) {
-    $username = $_POST['username'];
-    $user_type = $_POST['user_type'];
+$servername = "localhost";
+$dbname = "amc";
+$db_username = "root";
+$db_password = "jay@6125";
+
+// Create connection
+$conn = new mysqli($servername, $db_username, $db_password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $workspace = $_POST['workspace'];
     $password = $_POST['password'];
 
-
-    $servername = "localhost";
-    $usernameDB = "root";
-    $passwordDB = "jay@6125";
-    $dbname = "amc";
-
-    $conn = new mysqli($servername, $usernameDB, $passwordDB, $dbname);
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    $sql = "SELECT * FROM login WHERE username='$username' AND usertype='$user_type' AND password='$password'";
+    // SQL query to fetch user data based on username
+    $sql = "SELECT password, role FROM registration WHERE workspace = '$workspace'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        $_SESSION['username'] = $username;
-        $_SESSION['user_type'] = $user_type;
-
-        if ($user_type == 'admin') {
-            header("location: admin.php");
-        } else {
+        $row = $result->fetch_assoc();
+        if ($password == $row['password']) {
+            // Store user data in session
            
-            header("location: index.php");
+            $_SESSION['workspace'] = $workspace;
+            $_SESSION['role'] = $row['role'];
+
+            // Redirect based on role
+            if ($row['role'] == 'employee') {
+                header("Location: pages-contact.html");
+            }
+             else{
+                header("Location: index.php");
+            }
+        } 
+        else {
+            echo "Invalid password.";
         }
     } else {
-        $error_message = "Invalid username or password";
-        echo "Invalid Credentials";
+        echo "No user found.";
     }
 
     $conn->close();
