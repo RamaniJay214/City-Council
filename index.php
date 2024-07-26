@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard - Sulabh City</title>
+  <title>Dashboard - City Council</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -28,6 +28,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/animation.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: NiceAdmin
@@ -39,14 +40,39 @@
 </head>
 
 <body>
+<div id="loader">
+    <lottie-player 
+      src="https://lottie.host/fcd6607e-16fe-42cc-bdf3-8356fdfd586d/WPNcPaQwIM.json" 
+      background="#ffffff" 
+      speed="1" 
+      style="width: 300px; height: 300px" 
+      loop 
+      autoplay
+      direction="1"
+      mode="normal">
+    </lottie-player>
+  </div>
+<?php
+session_name('login');
+session_start();
+if (!isset($_SESSION['workspace'])) {
+  header('Location: pages-login.html');
+  exit;
+}
 
+$workspace = $_SESSION['workspace'];
+
+
+
+
+?>
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">Sulabh City</span>
+        <span class="d-none d-lg-block">City Council</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -212,7 +238,7 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">Wellcome <?php echo htmlspecialchars($username); ?></span>
+            <span class="d-none d-md-block dropdown-toggle ps-2">Wellcome <?php echo htmlspecialchars($workspace); ?></span>
     
 
           </a><!-- End Profile Iamge Icon -->
@@ -220,7 +246,7 @@
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
             <span>Sulabh City Wellcomes you!</span>
-              <h6> <?php echo htmlspecialchars($username); ?></h6>
+              <h6> <?php echo htmlspecialchars($workspace); ?></h6>
               
             </li>
             <li>
@@ -985,6 +1011,18 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script>
+    window.addEventListener('load', () => {
+      // Set a timeout for the loading animation
+      setTimeout(() => {
+        // Hide the loader
+        document.getElementById('loader').style.display = 'none';
+        // Show the main content
+        document.getElementById('content').style.display = 'block';
+      }, 6000); // 4000ms = 4 seconds
+    });
+  </script>
 
 </body>
 
