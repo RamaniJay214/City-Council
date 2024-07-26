@@ -1,5 +1,5 @@
 <?php
-// Database configuration ok
+// Database configuration
 $servername = "localhost";
 $username = "root";
 $password = "jay@6125";
@@ -18,17 +18,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $workspace = $_POST['workspace'];
     $username = $_POST['username'];
     $email = $_POST['email'];
-    $country = $_POST['country'];
     $address = $_POST['address'];
     $mbno = $_POST['mbno'];
-    $usertype = $_POST['usertype'];
+    $usertype = $_POST['role'];
     $job = $_POST['job'];
     $password = $_POST['password'];
     $about = $_POST['about'];
 
     
-    $sql = "INSERT INTO registration (workspace, username,user_type,password,job,country,address,phone,email,about)
-    VALUES ('$workspace', '$username', ' $usertype', '$password', '$job', '$country', '$address', '$mbno', '$email', '$about')";
+    $sql = "INSERT INTO registration (workspace, username,role,password,job,address,phone,email,about)
+    VALUES ('$workspace', '$username', ' $usertype', '$password', '$job', '$address', '$mbno', '$email', '$about')";
    if ($conn->query($sql) === TRUE) {
        echo "Data inserted successfully";
    } else {
