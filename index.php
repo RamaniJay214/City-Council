@@ -320,37 +320,37 @@ $workspace = $_SESSION['workspace'];
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="components-alerts.html">
+            <a href="abandoned-lander.php">
               <i class="bi bi-circle"></i><span>Abandoned Bicycle</span>
             </a>
           </li>
           <li>
-            <a href="components-accordion.html">
+            <a href="alleyclean-repair-lander.php">
               <i class="bi bi-circle"></i><span>Alley Cleaning & Repair</span>
             </a>
           </li>
           <li>
-            <a href="components-badges.html">
+            <a href="container-removal-lander.php">
               <i class="bi bi-circle"></i><span>Container Removal</span>
             </a>
           </li>
           <li>
-            <a href="components-breadcrumbs.html">
+            <a href="park-maintainance-lander.php">
               <i class="bi bi-circle"></i><span>Park Maintenance</span>
             </a>
           </li>
           <li>
-            <a href="components-buttons.html">
+            <a href="deadanimal-collection-lander.php">
               <i class="bi bi-circle"></i><span>Dead Animal Collection</span>
             </a>
           </li>
           <li>
-            <a href="components-cards.html">
+            <a href="lostfound-claim-lander.php">
               <i class="bi bi-circle"></i><span>Lost and Found Claims</span>
             </a>
           </li>
           <li>
-            <a href="components-carousel.html">
+            <a href="overflow-recyclecan-lander.php">
               <i class="bi bi-circle"></i><span>Overflow Recycling Can Issues</span>
             </a>
           </li>
