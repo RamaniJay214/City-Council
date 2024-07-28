@@ -308,7 +308,7 @@ $workspace = $_SESSION['workspace'];
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " href="index.php">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -355,40 +355,36 @@ $workspace = $_SESSION['workspace'];
             </a>
           </li>
           <li>
-            <a href="components-list-group.html">
+            <a href="electricity-lander.php">
               <i class="bi bi-circle"></i><span>Electricity Problems</span>
             </a>
           </li>
           <li>
-            <a href="components-modal.html">
+            <a href="publicspace-inspection-lander.php">
               <i class="bi bi-circle"></i><span>Public Space Inspection & Litter Removal</span>
             </a>
           </li>
           <li>
-            <a href="components-tabs.html">
+            <a href="outofstate-parking-lander.php">
               <i class="bi bi-circle"></i><span>Out of State Parking Violations</span>
             </a>
           </li>
           <li>
-            <a href="components-pagination.html">
+            <a href="roadway-streetrepair-lander.php">
               <i class="bi bi-circle"></i><span>Roadway & Street Repairs</span>
             </a>
           </li>
           <li>
-            <a href="components-progress.html">
+            <a href="trafficsafteyinput-signalissue-lander.php">
               <i class="bi bi-circle"></i><span>Traffic Safety Input & Signal Issues</span>
             </a>
           </li>
           <li>
-            <a href="components-spinners.html">
+            <a href="watersupply-lander.php">
               <i class="bi bi-circle"></i><span>Water Supply Problems</span>
             </a>
           </li>
-          <li>
-            <a href="components-tooltips.html">
-              <i class="bi bi-circle"></i><span>Status: Pending, Closed, Open</span>
-            </a>
-          </li>
+          
         </ul>
       </li><!-- End Components Nav -->
 
