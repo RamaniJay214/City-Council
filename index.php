@@ -938,36 +938,37 @@ $workspace = $_SESSION['workspace'];
 
               <div class="news">
                 <div class="post-item clearfix">
-                  <img src="assets/img/news-1.jpg" alt="">
-                  <h4><a href="#">Nihil blanditiis at in nihil autem</a></h4>
-                  <p>Sit recusandae non aspernatur laboriosam. Quia enim eligendi sed ut harum...</p>
+                  <img src="assets/img/Khabar.jpg" alt="">
+                  <h4><a href="#">Loans waived off,Telengana farmers sleep outside banks for fresh credit</a></h4>
+                  <p>Days after the Telangana government announced a farm loan waiver, hundreds of farmers, desperate to renew their loans, have resorted to sleeping outside banks overnight.</p>
                 </div>
 
                 <div class="post-item clearfix">
-                  <img src="assets/img/news-2.jpg" alt="">
-                  <h4><a href="#">Quidem autem et impedit</a></h4>
-                  <p>Illo nemo neque maiores vitae officiis cum eum turos elan dries werona nande...</p>
+                  <img src="assets/img/News-2.jpg" alt="">
+                  <h4><a href="#">ED files chargessheet against Lalu Prasad,Tejashwi Yadav in land-for-jobs scam</a></h4>
+                  <p>The alleged scam dates back to Rashtriya Janata Dal (RJD) chief Lalu Prasad Yadav's tenure as the Railway Minister in the UPA-1 government from 2004 to 2009.</p>
                 </div>
 
                 <div class="post-item clearfix">
-                  <img src="assets/img/news-3.jpg" alt="">
-                  <h4><a href="#">Id quia et et ut maxime similique occaecati ut</a></h4>
-                  <p>Fugiat voluptas vero eaque accusantium eos. Consequuntur sed ipsam et totam...</p>
+                  <img src="assets/img/News-3.jpg" alt="">
+                  <h4><a href="#">Sheikh Hasina asked to come for the moment to india on short notice:S Jaishankar</a></h4>
+                  <p>While speaking at the Rajya Sabha, External Affairs Minister S Jaishankar also said that prior to her arrival at the Hindon Airbase in Ghaziabad, "we simultaneously received a request of flight clearance from authorities in Bangladesh".</p>
                 </div>
 
                 <div class="post-item clearfix">
-                  <img src="assets/img/news-4.jpg" alt="">
-                  <h4><a href="#">Laborum corporis quo dara net para</a></h4>
-                  <p>Qui enim quia optio. Eligendi aut asperiores enim repellendusvel rerum cuder...</p>
+                  <img src="assets/img/News-4.jpg" alt="">
+                  <h4><a href="#">Fiji confers highest civilian award to President Droupadi Murmu</a></h4>
+                  <p>President Droupadi Murmu received the Companion of the Order of Fiji, the nation's highest civilian award, during her historic visit. She emphasised India's commitment to partnering with Fiji for mutual prosperity.</p>
                 </div>
 
                 <div class="post-item clearfix">
-                  <img src="assets/img/news-5.jpg" alt="">
-                  <h4><a href="#">Et dolores corrupti quae illo quod dolor</a></h4>
-                  <p>Odit ut eveniet modi reiciendis. Atque cupiditate libero beatae dignissimos eius...</p>
+                  <img src="assets/img/News-5.jpg" alt="">
+                  <h4><a href="#">80 students fall in ill due to food poisoning in Uttar Pradesh's Deoria</a></h4>
+                  <p>Around 80 students from Pandit Deendayal Upadhyay Ashram Method Inter College in Mehroona village of UP's Deoria fell ill due to food poisoning. The students are stable and an investigation is underway.</p>
                 </div>
 
               </div><!-- End sidebar recent posts-->
+
 
             </div>
           </div><!-- End News & Updates -->
