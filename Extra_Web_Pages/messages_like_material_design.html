@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messaging UI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f1f1;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background: white;
+            display: flex;
+            height: 95vh;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 30%;
+            border-right: 1px solid #e0e0e0;
+            overflow-y: auto;
+        }
+
+        .sidebar .header {
+            padding: 15px;
+            background: #007bff;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .sidebar .header input {
+            width: 70%;
+            padding: 5px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+        }
+
+        .chat-list {
+            padding: 10px;
+        }
+
+        .chat-item {
+            display: flex;
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+            cursor: pointer;
+            align-items: center;
+        }
+
+        .chat-item img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .chat-item .chat-info {
+            flex: 1;
+        }
+
+        .chat-item .chat-info h5 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .chat-item .chat-info p {
+            margin: 5px 0 0 0;
+            font-size: 14px;
+            color: gray;
+        }
+
+        .chat-item .chat-time {
+            font-size: 12px;
+            color: gray;
+        }
+
+        /* Chat Window */
+        .chat-window {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-window .header {
+            padding: 15px;
+            background: #007bff;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .chat-window .messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: #f1f1f1;
+        }
+
+        .message {
+            margin: 10px 0;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .message img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .message-content {
+            max-width: 70%;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .message-content.left {
+            background: #e0e0e0;
+        }
+
+        .message-content.right {
+            background: #007bff;
+            color: white;
+            margin-left: auto;
+        }
+
+        .chat-window .footer {
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .chat-window .footer input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #e0e0e0;
+            outline: none;
+            margin-right: 10px;
+        }
+
+        .chat-window .footer button {
+            padding: 10px 15px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="header">
+                Recent
+                <input type="text" id="searchBar" placeholder="Search">
+            </div>
+            <div class="chat-list" id="chatList">
+                <!-- Chat items will be dynamically added -->
+            </div>
+        </div>
+
+        <!-- Chat Window -->
+        <div class="chat-window">
+            <div class="header" id="currentChatHeader">Messaging</div>
+            <div class="messages" id="messageContainer">
+                <div class="welcome-message">
+                    <img src="C:\xampp\htdocs\php\logo.png" alt="City Council Logo" style="display: block; margin: 0 auto; width: 250px; margin-bottom: 20px;">
+                    <p style="text-align: center; color: gray; font-size: 16px; margin-top: 50px;">
+                        Welcome to Messenger. Please select an employee to start chating.
+                    </p>
+                </div>
+            </div>
+            <div class="footer">
+                <input type="text" id="messageInput" placeholder="Type a message" disabled>
+                <button id="sendButton" disabled><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+       const employees = [
+    { id: 10012, name: "Sunil Rajput", avatar: "https://bootdey.com/img/Content/avatar/avatar1.png" },
+    { id: 10013, name: "Ravi Kumar", avatar: "https://bootdey.com/img/Content/avatar/avatar2.png" },
+    { id: 10014, name: "Anjali Sharma", avatar: "https://bootdey.com/img/Content/avatar/avatar3.png" },
+    { id: 10015, name: "Priya Mehta", avatar: "https://bootdey.com/img/Content/avatar/avatar4.png" },
+    { id: 10016, name: "Rajesh Gupta", avatar: "https://bootdey.com/img/Content/avatar/avatar5.png" },
+    { id: 10017, name: "Sneha Patel", avatar: "https://bootdey.com/img/Content/avatar/avatar6.png" },
+    { id: 10018, name: "Amitabh Chatterjee", avatar: "https://bootdey.com/img/Content/avatar/avatar7.png" },
+    { id: 10019, name: "Neha Tiwari", avatar: "https://bootdey.com/img/Content/avatar/avatar8.png" },
+    { id: 10020, name: "Manish Pandey", avatar: "https://bootdey.com/img/Content/avatar/avatar9.png" },
+    { id: 10021, name: "Kiran Desai", avatar: "https://bootdey.com/img/Content/avatar/avatar10.png" },
+    { id: 10022, name: "Siddharth Malhotra", avatar: "https://bootdey.com/img/Content/avatar/avatar11.png" },
+    { id: 10023, name: "Megha Sharma", avatar: "https://bootdey.com/img/Content/avatar/avatar12.png" },
+    { id: 10024, name: "Ashok Verma", avatar: "https://bootdey.com/img/Content/avatar/avatar1.png" },
+    { id: 10025, name: "Pooja Aggarwal", avatar: "https://bootdey.com/img/Content/avatar/avatar2.png" },
+    { id: 10026, name: "Nikhil Roy", avatar: "https://bootdey.com/img/Content/avatar/avatar3.png" }
+];
+
+
+        const chatList = document.getElementById("chatList");
+        const currentChatHeader = document.getElementById("currentChatHeader");
+        const messageContainer = document.getElementById("messageContainer");
+        const messageInput = document.getElementById("messageInput");
+        const sendButton = document.getElementById("sendButton");
+        const searchBar = document.getElementById("searchBar");
+
+        let currentChat = null;
+
+        // Render chat list
+        function renderChatList(filter = "") {
+            chatList.innerHTML = "";
+            employees
+                .filter(emp => emp.name.toLowerCase().includes(filter.toLowerCase()) || emp.id.toString().includes(filter))
+                .forEach(emp => {
+                    const chatItem = document.createElement("div");
+                    chatItem.className = "chat-item";
+                    chatItem.innerHTML = `
+                        <img src="${emp.avatar}" alt="${emp.name}">
+                        <div class="chat-info">
+                            <h5>${emp.name}</h5>
+                            <p>Emp ID: ${emp.id}</p>
+                        </div>
+                    `;
+                    chatItem.addEventListener("click", () => openChat(emp));
+                    chatList.appendChild(chatItem);
+                });
+        }
+
+        // Open chat
+        function openChat(emp) {
+            currentChat = emp;
+            currentChatHeader.textContent = `${emp.name} (Emp ID: ${emp.id})`;
+            messageContainer.innerHTML = ""; // Clear previous messages
+            messageInput.disabled = false; // Enable message input
+            sendButton.disabled = false; // Enable send button
+        }
+
+        // Send message
+        sendButton.addEventListener("click", function () {
+            const messageText = messageInput.value.trim();
+            if (messageText && currentChat) {
+                const messageDiv = document.createElement("div");
+                messageDiv.className = "message";
+
+                const messageContent = document.createElement("div");
+                messageContent.className = "message-content right";
+                messageContent.innerText = messageText;
+
+                messageDiv.appendChild(messageContent);
+                messageContainer.appendChild(messageDiv);
+
+                messageInput.value = "";
+                messageContainer.scrollTop = messageContainer.scrollHeight;
+            }
+        });
+
+        // Search functionality
+        searchBar.addEventListener("input", function () {
+            renderChatList(searchBar.value);
+        });
+
+        // Initial rendering
+        renderChatList();
+    </script>
+</body>
+
+</html>
