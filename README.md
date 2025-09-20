@@ -1,8 +1,8 @@
 # Municipal-Corporation
-Diploma Computer Engineering SEMESTER 5 Project-1
+Diploma Computer Engineering Final Year Project
 Members:-
-Jay Ramani 214
-Sneh Faldu 211
-Nihar Trivedi 213
-Jyotin Tank 241
-Parin Zala 201
+Jay Ramani:- https://github.com/RamaniJay214
+Sneh Faldu:- https://github.com/SnehFaldu
+Nihar Trivedi
+Jyotin Tank
+Parin Zala
